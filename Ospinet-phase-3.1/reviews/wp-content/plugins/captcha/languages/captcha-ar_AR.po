@@ -1,0 +1,427 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: captcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-10-17 17:09+0300\n"
+"PO-Revision-Date: 2013-10-17 17:09+0300\n"
+"Last-Translator: \n"
+"Language-Team: Albayan Design Hani Aladoli <info@albayan-design.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: captcha.php:32
+#: captcha.php:216
+#, fuzzy
+msgid "Captcha Settings"
+msgstr "خيارات Captcha "
+
+#: captcha.php:32
+msgid "Captcha"
+msgstr "Captcha"
+
+#: captcha.php:41
+msgid "Login form"
+msgstr "اطار تسجيل الدخو"
+
+#: captcha.php:42
+#: captcha.php:254
+#, fuzzy
+msgid "Registration form"
+msgstr "اطار التسجيل"
+
+#: captcha.php:42
+msgid "Register form"
+msgstr "اطار التسجيل"
+
+#: captcha.php:43
+#, fuzzy
+msgid "Reset Password form"
+msgstr "اطار استرجاع الرقم السري"
+
+#: captcha.php:43
+msgid "Lost password form"
+msgstr "اطار استرجاع الرقم السري"
+
+#: captcha.php:44
+#: captcha.php:255
+msgid "Comments form"
+msgstr "اطار التعليقات"
+
+#: captcha.php:45
+msgid "Hide CAPTCHA for registered users"
+msgstr "اخفاء CAPTCHA  للاعضاء المسلجين"
+
+#: captcha.php:50
+msgid "Plus (&#43;)"
+msgstr "  (&#43 أكثر;)"
+
+#: captcha.php:50
+msgid "Plus"
+msgstr "أكثر"
+
+#: captcha.php:51
+msgid "Minus (&minus;)"
+msgstr "اقل (&minus;)"
+
+#: captcha.php:51
+msgid "Minus"
+msgstr "اقل"
+
+#: captcha.php:52
+#, fuzzy
+msgid "Multiplication (&times;)"
+msgstr " ضاعف (&times;)"
+
+#: captcha.php:52
+#, fuzzy
+msgid "Multiply"
+msgstr " ضاعف (&times;)"
+
+#: captcha.php:57
+msgid "Numbers"
+msgstr "ارقام"
+
+#: captcha.php:58
+msgid "Words"
+msgstr "كلمات"
+
+#: captcha.php:149
+#: captcha.php:160
+msgid "Settings"
+msgstr "الاعدادت "
+
+#: captcha.php:161
+msgid "FAQ"
+msgstr "اسئلة واجوبة"
+
+#: captcha.php:162
+msgid "Support"
+msgstr "الدعم"
+
+#: captcha.php:205
+#, fuzzy
+msgid "Please select one item in the block Arithmetic and Complexity for CAPTCHA"
+msgstr "يرجى تحديد نقطة واحدة في الأعمال الحسابية لـ CAPTCHA"
+
+#: captcha.php:209
+msgid "Options saved."
+msgstr "تم حفظ التغييرات"
+
+#: captcha.php:222
+#: captcha.php:251
+#, fuzzy
+msgid "Enable CAPTCHA for:"
+msgstr "تفعيل الـ CAPTCHA علي :"
+
+#: captcha.php:236
+#: captcha.php:238
+#: captcha.php:241
+msgid "Contact form"
+msgstr "نموذج الاتصال"
+
+#: captcha.php:236
+#: captcha.php:238
+#: captcha.php:241
+msgid "powered by"
+msgstr ""
+
+#: captcha.php:238
+msgid "Activate contact form"
+msgstr "تفعيل نموذج الاتصال"
+
+#: captcha.php:241
+msgid "Download contact form"
+msgstr "تحميل الاتصال بنا "
+
+#: captcha.php:243
+#, fuzzy
+msgid "If you would like to customize this plugin for a custom form, please see"
+msgstr "اذا كنت ترغب في تخصيص بعض الخيارات الاضافية في هذه النموذج الرجاء الاتصال بنا عبر <a href=\"Mailto:plugin@bestwebsoft.com\">plugin@bestwebsoft.com</a>  او عبر نموذج الاتصال علي موقعنا الخاص"
+
+#: captcha.php:256
+msgid "\"Create a Group\" form"
+msgstr ""
+
+#: captcha.php:261
+msgid "This functionality is available in the Pro version of the plugin. For more details, please follow the link"
+msgstr ""
+
+#: captcha.php:268
+#, fuzzy
+msgid "Title for CAPTCHA in the form"
+msgstr "تسمية لـCAPTCHA  في النموذج"
+
+#: captcha.php:272
+msgid "Arithmetic actions for CAPTCHA"
+msgstr "الإجراءات الحسابية لCAPTCHA"
+
+#: captcha.php:281
+msgid "CAPTCHA complexity level"
+msgstr ""
+
+#: captcha.php:291
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: captcha.php:336
+#: captcha.php:343
+#: captcha.php:517
+#: captcha.php:525
+#: captcha.php:537
+#: captcha.php:545
+msgid "ERROR"
+msgstr "خطاء"
+
+#: captcha.php:336
+#: captcha.php:360
+#: captcha.php:481
+#: captcha.php:517
+#: captcha.php:537
+#: captcha.php:564
+msgid "Please fill the form."
+msgstr ""
+
+#: captcha.php:343
+#: captcha.php:371
+#: captcha.php:525
+#: captcha.php:545
+#, fuzzy
+msgid "Please enter a valid CAPTCHA value."
+msgstr "الرجاء تكملة الـ  CAPTCHA ."
+
+#: captcha.php:487
+#: captcha.php:572
+#, fuzzy
+msgid "Error: You have entered an incorrect CAPTCHA value. Click the BACK button on your browser, and try again."
+msgstr "خطاء : لقد قمت بأدخال CAPTCHA  غير صحيح ’, اضغظ علي زر الرجوع في متصفحك والتجربة مرة اخري"
+
+#: captcha.php:584
+#: captcha.php:820
+msgid "zero"
+msgstr "صفر"
+
+#: captcha.php:585
+#: captcha.php:821
+#: captcha.php:1036
+msgid "one"
+msgstr "واحد"
+
+#: captcha.php:586
+#: captcha.php:822
+msgid "two"
+msgstr "اتنان"
+
+#: captcha.php:587
+#: captcha.php:823
+msgid "three"
+msgstr "ثلاته"
+
+#: captcha.php:588
+#: captcha.php:824
+msgid "four"
+msgstr "اربعه"
+
+#: captcha.php:589
+#: captcha.php:825
+msgid "five"
+msgstr "خمسة"
+
+#: captcha.php:590
+#: captcha.php:826
+#: captcha.php:1036
+msgid "six"
+msgstr "سته"
+
+#: captcha.php:591
+#: captcha.php:827
+#: captcha.php:1024
+#: captcha.php:1030
+msgid "seven"
+msgstr "سبعة"
+
+#: captcha.php:592
+#: captcha.php:828
+#: captcha.php:1027
+msgid "eight"
+msgstr "ثمانية"
+
+#: captcha.php:593
+#: captcha.php:829
+msgid "nine"
+msgstr "تسعة"
+
+#: captcha.php:596
+#: captcha.php:832
+msgid "eleven"
+msgstr "احدي عشر "
+
+#: captcha.php:597
+#: captcha.php:833
+msgid "twelve"
+msgstr "اثني عشر"
+
+#: captcha.php:598
+#: captcha.php:834
+msgid "thirteen"
+msgstr "ثلاثة عشر "
+
+#: captcha.php:599
+#: captcha.php:835
+msgid "fourteen"
+msgstr "اربعة عشر"
+
+#: captcha.php:600
+#: captcha.php:836
+msgid "fifteen"
+msgstr "خمسة عشر"
+
+#: captcha.php:601
+#: captcha.php:837
+msgid "sixteen"
+msgstr "ستة عشر"
+
+#: captcha.php:602
+#: captcha.php:838
+msgid "seventeen"
+msgstr "سبعة عشر"
+
+#: captcha.php:603
+#: captcha.php:839
+msgid "eighteen"
+msgstr "ثمانية عشر"
+
+#: captcha.php:604
+#: captcha.php:840
+msgid "nineteen"
+msgstr "تسعة عشر"
+
+#: captcha.php:607
+#: captcha.php:843
+msgid "ten"
+msgstr "عشرة"
+
+#: captcha.php:608
+#: captcha.php:844
+msgid "twenty"
+msgstr "عشرون"
+
+#: captcha.php:609
+#: captcha.php:845
+msgid "thirty"
+msgstr "ثلاثون"
+
+#: captcha.php:610
+#: captcha.php:846
+msgid "forty"
+msgstr "اربعون"
+
+#: captcha.php:611
+#: captcha.php:847
+msgid "fifty"
+msgstr "خمسون"
+
+#: captcha.php:612
+#: captcha.php:848
+msgid "sixty"
+msgstr "ستون"
+
+#: captcha.php:613
+#: captcha.php:849
+msgid "seventy"
+msgstr "سبعون"
+
+#: captcha.php:614
+#: captcha.php:850
+msgid "eighty"
+msgstr "ثمانون"
+
+#: captcha.php:615
+#: captcha.php:851
+msgid "ninety"
+msgstr "تسعون"
+
+#: captcha.php:702
+#: captcha.php:938
+msgid "and"
+msgstr "و"
+
+#: captcha.php:724
+#, fuzzy
+msgid "Encryption password is not set"
+msgstr "لم يتم تعيين كلمة المرور من فك التشفير"
+
+#: captcha.php:744
+#, fuzzy
+msgid "Decryption password is not set"
+msgstr "لم يتم تعيين كلمة المرور من فك التشفير"
+
+#, fuzzy
+#~ msgid "Please enter a valid email address."
+#~ msgstr "الرجاء تكملة الـ  CAPTCHA ."
+
+#, fuzzy
+#~ msgid "Pro plugins"
+#~ msgstr "Плагины BWS"
+#~ msgid "Activated plugins"
+#~ msgstr "الاضافات المفعلة "
+#~ msgid "Read more"
+#~ msgstr "اقراء المزيد"
+#~ msgid "Installed plugins"
+#~ msgstr "الاضافات المركبة"
+#~ msgid "Recommended plugins"
+#~ msgstr "اضافات موصي بها"
+
+#, fuzzy
+#~ msgid "Free plugins"
+#~ msgstr "اضافات موصي بها"
+#~ msgid "Download"
+#~ msgstr "تحميل"
+#~ msgid "Install %s"
+#~ msgstr "تركيب %s"
+#~ msgid "Install now from wordpress.org"
+#~ msgstr "نزلها الان من wordpress.org"
+
+#, fuzzy
+#~ msgid "Active Plugins"
+#~ msgstr "الاضافات المفعلة "
+
+#, fuzzy
+#~ msgid "Inactive Plugins"
+#~ msgstr "الاضافات المفعلة "
+
+#, fuzzy
+#~ msgid "Send to support"
+#~ msgstr "الدعم"
+
+#, fuzzy
+#~ msgid "(powered by bestwebsoft.com)"
+#~ msgstr "(برمجة bestwebsoft.com)"
+
+#, fuzzy
+#~ msgid ""
+#~ "If you have any questions, please contact us via plugin@bestwebsoft.com "
+#~ "or fill in the contact form on our website"
+#~ msgstr ""
+#~ "اذا كان لديك اي استفسار او سؤال الرجاء الاتصال بنا عبر بريدنا "
+#~ "الالكتروني :  contact us via plugin@bestwebsoft.com  , او المراسلة "
+#~ "الفورية من واجهة الاتصال بنا علي موقعنا الخاص"
+#~ msgid "Increase"
+#~ msgstr "زيادة"
+#~ msgid "Difficulty for CAPTCHA"
+#~ msgstr "مدي صعوبة لـ CAPTCHA"
+#~ msgid "That CAPTCHA was incorrect."
+#~ msgstr "الـ  CAPTCHA  غير صحيح"
+#~ msgid "The password of encryption is not set"
+#~ msgstr "لم يتم تعيين كلمة المرور المشفرة"
+#~ msgid "null"
+#~ msgstr "nula"
+#~ msgid "Install Now"
+#~ msgstr "Установить сейчас"
+

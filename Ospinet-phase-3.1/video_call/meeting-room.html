@@ -1,0 +1,308 @@
+<
+<!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<body>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="http://www.thecoffeetable.in/public/css/coffee-table-v2.css" />
+<script type="text/javascript"
+	src="http://www.thecoffeetable.in/_common/javascripts/jquery-1.8.3.js"></script>
+<script type="text/javascript"
+	src="http://www.thecoffeetable.in/_common/javascripts/coffee-table/min-coffee-table.js"></script>
+<script type="text/javascript"
+	src="http://www.thecoffeetable.in/_common/javascripts/jquery.tipsy.js"></script>
+
+<script type="text/javascript">
+			//when document is ready
+			$(document).ready(function()
+			{
+				//initializing videochat components
+				initCoffeeTable('CMR00000010','APP00000019','meeting');
+
+				//When the window is closing then before unload event disconnect
+				//from the coffeetable server.
+				$(window).on('beforeunload', function() {disconnectCoffeeTable();});                
+			});
+		</script>
+
+</head>
+
+<div class="coffee-table">
+
+	<div id="ctNotification" class="coffee-table-hide"></div>
+
+	<audio id="ctRingTone" loop> <source
+		src="http://www.thecoffeetable.in/public/audio/hangout_ringtone.ogg"
+		type="audio/ogg"></source> </audio>
+	<audio id="ctDisconnectTone"> <source
+		src="http://www.thecoffeetable.in/public/audio/hangouts_message.ogg"
+		type="audio/ogg"></source> </audio>
+
+	<input type="hidden" id="instantCallAddParticipant"
+		class="resetList coffee-table-hide"></input>
+
+	<div id="meetingRoom" class="meeting-room coffee-table-hide">
+		<div class="main-participant-video-container"
+			id="participantVideoContainer1">
+			<div class="top-navigation-menu-container" id="mrNavigationContainer">
+				<div id="mrTitleContainer" class="title-container">
+					<div class="customer-logo-1 coffee-table-hide"></div>
+					<div id="mrTitle" class="meeting-room-title">Meeting Room</div>
+				</div>
+
+				<div class="top-navigation-menu-buttons">
+					<div id="mrMinimize" class="minimize-window coffee-table-hide"
+						state="enabled"></div>
+					<div id="mrFullScreen" class="full-screen coffee-table-hide"
+						state="enabled"></div>
+					<div id="mrMeetingDetailsButton"
+						class="meeting-details-button coffee-table-hide"
+						title="Meeting Details" state="disabled"></div>
+					<div id="mrMeetingDetails"
+						class="meeting-details coffee-table-hide"></div>
+				</div>
+
+				<div class="customer-logo-2 coffee-table-hide"></div>
+
+			</div>
+
+			<div class="main-participant-message coffee-table-hide"
+				id="participantMessage1"></div>
+			<div
+				class="main-participant-remove-button-container coffee-table-hide"
+				id="participantRemoveButtonContainer1">
+				<div class="main-participant-remove-button"
+					title="Remove participant from the meeting"
+					id="participantRemoveButton1"></div>
+			</div>
+			<video class="main-participant-video coffee-table-hide"
+				id="participantVideo1" autoplay="autoplay"></video>
+			<div class="main-participant-name coffee-table-hide"
+				id="participantName1"></div>
+
+			<div class="participant-list">
+
+				<div class="user-video-container" id="userVideoContainer">
+					<video class="user-video" id="userVideo" autoplay="autoplay" muted></video>
+				</div>
+
+				<div class="participant-video-container coffee-table-hide"
+					id="participantVideoContainer2">
+					<div class="participant-message" id="participantMessage2"></div>
+					<div class="participant-remove-button-container coffee-table-hide"
+						id="participantRemoveButtonContainer2">
+						<div class="participant-remove-button"
+							title="Remove participant from the meeting"
+							id="participantRemoveButton2"></div>
+					</div>
+					<video class="participant-video coffee-table-hide"
+						id="participantVideo2" autoplay="autoplay"></video>
+					<div class="participant-name" id="participantName2"></div>
+				</div>
+
+				<div class="participant-video-container coffee-table-hide"
+					id="participantVideoContainer3">
+					<div class="participant-message" id="participantMessage3"></div>
+					<div class="participant-remove-button-container coffee-table-hide"
+						id="participantRemoveButtonContainer3">
+						<div class="participant-remove-button"
+							title="Remove participant from the meeting"
+							id="participantRemoveButton3"></div>
+					</div>
+					<video class="participant-video coffee-table-hide"
+						id="participantVideo3" autoplay="autoplay"></video>
+					<div class="participant-name" id="participantName3"></div>
+				</div>
+
+				<div class="participant-video-container coffee-table-hide"
+					id="participantVideoContainer4">
+					<div class="participant-message coffee-table-hide"
+						id="participantMessage4"></div>
+					<div class="participant-remove-button-container coffee-table-hide"
+						id="participantRemoveButtonContainer4">
+						<div class="participant-remove-button"
+							title="Remove participant from the meeting"
+							id="participantRemoveButton4"></div>
+					</div>
+					<video class="participant-video coffee-table-hide"
+						id="participantVideo4" autoplay="autoplay"></video>
+					<div class="participant-name" id="participantName4"></div>
+				</div>
+
+				<div class="participant-video-container coffee-table-hide"
+					id="participantVideoContainer5">
+					<div class="participant-message" id="participantMessage5"></div>
+					<div class="participant-remove-button-container coffee-table-hide"
+						id="participantRemoveButtonContainer5">
+						<div class="participant-remove-button"
+							title="Remove participant from the meeting"
+							id="participantRemoveButton5"></div>
+					</div>
+					<video class="participant-video coffee-table-hide"
+						id="participantVideo5" autoplay="autoplay"></video>
+					<div class="participant-name" id="participantName5"></div>
+				</div>
+			</div>
+
+			<div class="bottom-navigation-menu-buttons">
+				<div class="bottom-navigation-menu-buttons-center">
+					<div id="mrAudioMuteButton" class="audio-mute-button"
+						title="Mute your audio" state="disabled">
+						<div id="mrAudioMuteButtonIcon" class="icon-disabled"></div>
+						<div id="mrAudioMuteButtonText" class="button-text">Audio</div>
+					</div>
+					<div id="mrVideoMuteButton" class="video-mute-button"
+						title="Turn off your video" state="disabled">
+						<div id="mrVideoMuteButtonIcon" class="icon-disabled"></div>
+						<div id="mrVideoMuteButtonText" class="button-text">Video</div>
+					</div>
+					<div id="mrLowBandwidthButton" class="low-bandwidth-button"
+						title="Start a low bandwidth call" state="disabled">
+						<div id="mrLowBandwidthButtonIcon" class="icon-disabled"></div>
+						<div id="mrLowBandwidthButtonText" class="button-text">Bandwidth</div>
+					</div>
+					<div id="mrCallButton" class="call-button coffee-table-hide"
+						title="Re-dial" state="disabled">
+						<div id="mrCallButtonIcon" class="icon-disabled"></div>
+						<div id="mrCallButtonText" class="button-text">Call</div>
+					</div>
+					<div id="mrEndButton" class="end-button"
+						title="End your video call" state="enabled">
+						<div id="mrEndButtonIcon" class="icon-disabled"></div>
+						<div id="mrEndButtonText" class="button-text">End</div>
+					</div>
+
+				</div>
+				<!--                    add class more-choice-menu-activated on click to the mrMoreChoices-->
+				<div id="mrMoreChoices" class="more-choice-menu coffee-table-hide"
+					state="disabled" title="Click for more option">
+					<div id="mrMoreChoicesIcon" class="icon-disabled"></div>
+					<ul id="mrMoreChoicesOptions"
+						class="resetList more-choice-menu-choices coffee-table-hide">
+						<li class="options coffee-table-hide" id="startScreenSharing">Start
+							Screen Sharing</li>
+						<li class="options coffee-table-hide" id="stopScreenSharing">Stop
+							Screen Sharing</li>
+						<li class="options" id="addParticipant">Add Participant</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<div id="ctDock" class="ct-doc coffee-table-hide">
+		<div class="ct-doc-text-image"></div>
+		<div class="ct-doc-icon-container">
+			<div id="ctDockMaximize" class="ct-doc-icon-maximize"
+				title="Maximize Video Chat"></div>
+			<div id="ctDockClose" id="" class="ct-doc-icon-close" title="Close"></div>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<div id="ctMessageBox" class="message-box coffee-table-hide">
+
+		<div class="message-box-title-container">
+			<div id="ctMessageBoxTitle" class="message-box-title"></div>
+			<div id="ctMessageBoxClose"
+				class="message-box-close-button coffee-table-hide"></div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="message-box-content-container">
+
+			<div id="ctMessageBoxInfo" class="message-box-info coffee-table-hide"></div>
+
+			<div class="clear"></div>
+
+			<div id="ctMessageBoxMainTextContainer"
+				class="message-box-text-container">
+				<table class="message-box-text-table">
+					<tr>
+						<td id="ctMessageBoxImageContainer"
+							class="message-box-image-container coffee-table-hide"><img
+							id="ctMessageBoxSuccessImage"
+							src="http://www.thecoffeetable.in/public/images/message-box-check.png"
+							class="coffee-table-hide" /> <img id="ctMessageBoxLoaderImage"
+							src="http://www.thecoffeetable.in/public/images/loader.gif"
+							class="coffee-table-hide" /> <img id="ctMessageBoxUserImage"
+							src="http://www.thecoffeetable.in/public/images/user-image.png"
+							class="coffee-table-hide" /></td>
+						<td id="ctMessageBoxMainText" class="message-box-text"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="clear"></div>
+			<div id="ctMessageBoxDetails"
+				class="message-details coffee-table-hide">
+				<ul id="ctMessageBoxDetailsPoints" class="detail-points"></ul>
+				<ul id="ctMessageBoxSolutionPoints" class="solution-points"></ul>
+			</div>
+
+			<div class="clear"></div>
+			<div id="ctAunthentication"
+				class="message-box-authentication coffee-table-hide">
+				<select tabindex="1" class="drop-down-user-type"
+					id="ctAddParticipantsSelectBox">
+					<option value="" selected="selected">Select participant
+						type</option>
+					<option value="Guest">Guest</option>
+					<option value="Initiator">Meeting Initiator</option>
+				</select> <input id="ctTextBox" name="txtParticiapantBox"
+					class="add-participant-text-box" type="text" size="40"
+					maxlength="40" tabindex="1" placeholder="Enter your email address"
+					tabindex="1" /> <input id="ctVerificationCodeTextBox"
+					class="participant-verification-text-box"
+					name="txtParticiapantVerificationCodeBox" type="text"
+					placeholder="Verification code" tabindex="2" size="8" maxlength="8" />
+
+			</div>
+			<div class="clear"></div>
+
+			<div id="ctAddParticpants"
+				class="message-box-add-participants coffee-table-hide">
+				<input type="text" class="add-participant-text-box" id="ctTopic"
+					size="20" placeholder="Topic of the Meeting (Optional)" /> <input
+					type="text" class="add-participant-text-box coffee-table-hide"
+					id="ctUsername" size="20" placeholder="Username" /> <input
+					type="password" class="add-participant-text-box coffee-table-hide"
+					id="ctPassword" size="20" placeholder="Password" /> <input
+					type="text" class="add-participant-text-box" id="ctParticipant1"
+					size="20" placeholder="Participant 1" tabindex="1" /> <input
+					type="text" class="add-participant-text-box" id="ctParticipant2"
+					size="20" placeholder="Participant 2" tabindex="2" /> <input
+					type="text" class="add-participant-text-box" id="ctParticipant3"
+					size="20" placeholder="Participant 3" tabindex="3" /> <input
+					type="text" class="add-participant-text-box" id="ctParticipant4"
+					size="20" placeholder="Participant 4" tabindex="4" />
+			</div>
+			<div class="clear"></div>
+			<div id="ctMessageBoxCreateMeetingOptions"
+				class="message-box-meeting-options coffee-table-hide">
+				<a id="ctMessageBoxAddMessage" class="message-box-add-message"
+					href="#">+ Add a Message</a>
+				<textarea id="ctMessageBoxMeetingMessage"
+					class="message-box-meeting-message coffee-table-hide"
+					placeholder="Start typing your message here" rows="3" cols="5"></textarea>
+			</div>
+
+			<div class="clear"></div>
+
+			<div id="ctMessageBoxButtons"
+				class="message-box-button-container coffee-table-hide">
+				<div tabindex="0" id="ctMessageBoxButton1"
+					class="message-box-button-1 coffee-table-hide">Accept</div>
+				<div tabindex="0" id="ctMessageBoxButton2"
+					class="message-box-button-2 coffee-table-hide">Reject</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
