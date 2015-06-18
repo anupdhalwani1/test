@@ -107,12 +107,10 @@ window.FilesListView = Backbone.View.extend({
     },
     render: function(eventName) {
         _.each(this.model.models, function(data) {
-
             $(this.el).append(new FilesListItemView({
                 model: data
             }).render().el);
         }, this);
-
         return this;
     }
 });
@@ -122,7 +120,6 @@ if ($('#tpl-files-list-item').length > 0) {
         initialize: function() {
             this.model.bind("change", this.render, this);
             this.model.bind("destroy", this.close, this);
-           // this.$el.attr("class", "list-group-item animated fadeInUp");
         },
         render: function(eventName) {
             $(this.el).html(this.template(this.model.toJSON()));
@@ -236,25 +233,7 @@ if ($('#tpl-addfile-view').length > 0) {
     	}
         return this;
         },
-        get_records_for_file: function() {
-        	var self = this;
-            this.filesList = new RecordsCollection();
-            this.filesList.fetch({
-                data: {
-                    search: $('#filename').val()
-                },
-                success: function(data) {
-                    if (data.length != 0) {
-                        $("#records_list").css("display", "block");                      
-                        $('#records_list').html(new RecordListView({
-                            model: data
-                        }).render().el);
-                    }
-                }
-
-            });
-            return false;      	       	
-/*        	       	
+        get_records_for_file: function() {        	       	
         	var a = "select";
              $.ajax({
                  type: "POST",
@@ -263,23 +242,15 @@ if ($('#tpl-addfile-view').length > 0) {
                  data: {
                 	 record: a
                  },
-                success: function(msg) { 
-                	console.log(msg);
-                	$("#records_list").css("display", "block");
-                	var msg = $.parseJSON(msg);
-                	var rec ="";
-                	 $.each(msg, function() {
-                	        $.each(this, function(key, value) {
-                	             rec =  '<div class="box-generic" style="width: 260px; border-color: #B4B4B4;">'+			
-                	               		'<div class="media">'+
-                	               		'<input type="checkbox" value="'+ value["record_id"] +'" />'+
-                	               		'<div id="records" class="media-body" style="height: 55px; width: 235px; font-size: 20px;">'+
-                	               		(value["title"])+'</div></div></div>';
-                	            $("#records_list").append(rec);
-                	        });
-                	    }); 
+                success: function(msg) {
+                $("#records_list").css("display", "block");
+                $('#records_list').html(msg); 
                 }
-        	});	*/
+        	});
+             $("#records_list").niceScroll({
+                 cursorcolor: "#1ba0a2",
+                 horizrailenabled: false
+             });
         },
         close: function() {
             $(this.el).unbind();
@@ -292,7 +263,6 @@ if ($('#tpl-addfile-view').length > 0) {
 window.ContactsListView = Backbone.View.extend({
     tagName: 'ul',
     initialize: function() {
-
         this.model.bind("reset", this.render, this);
         var self = this;
         this.model.bind("add", function(contacts) {
@@ -532,6 +502,51 @@ if ($('#tpl-wine-list-item').length > 0) {
     });
 
 }
+//Save file
+function save_file(){
+	var checkboxes = document.getElementsByName('records');
+	var vals = "";
+	var file_name = $('#filename').val();
+	for (var i=0, n=checkboxes.length;i<n;i++) {
+	  if (checkboxes[i].checked) 
+	  {
+	  vals += checkboxes[i].value+",";
+	  }
+	}
+	if(file_name == ""){
+		$("#filename").css("border-color", "#a94442");
+		$("#fn").css("color", "#a94442");
+		$('#records_list').html("");
+		$("#rec_heading").css("display", "none");
+	}else{
+		$("#fn").css("color", "#525252");
+		$("#filename").css("border-color", "#B4B4B4");
+		if(vals == ""){
+			$("#rec_heading").css("display", "block");
+			$("#rec_heading").css("color", "#a94442");
+		}else{
+			$("#rec_heading").css("color", "#525252");
+			$.ajax({
+		        type: "POST",
+		        url: "files_rest",
+		        data: {
+		        	name: file_name,
+		        	records: vals
+		        },
+		        success: function() {
+		        	$('#records_list').html("");
+		        	$('#filename').val('');
+		            self.newfile();	
+		        }
+		    });
+		}
+	}
+}
+// Get Files on save file button
+function newfile(){
+	app.navigate("fileid/new", true);
+	return false;
+}
 // PDF Viewer
 function pdffileviewer(){
     var file_name = $(this).attr("id");
@@ -621,7 +636,7 @@ function sharefiles() {
     $.ajax({
         type: "POST",
         url: "files_rest",
-        datatype: "json",
+        datatype: "json",	
         data: {
             id: file_id
         },
@@ -636,7 +651,7 @@ function sharefiles() {
 
 
                 '<div class="col-md-8" style="margin-bottom:10px;">' +
-                '<input id="to" class="tags" tabindex=2 style="width: 300px;" value="" />' +
+                '<input id="to_contact" class="tags" tabindex=2 style="width: 300px;" value="" />' +
                 '<div id="error" class="col-md-8" style="margin-bottom:10px; width: 150px; color: red; display: none;">' +
                 'This field is required.' +
                 '</div>' +
@@ -675,7 +690,6 @@ function sharefiles() {
                 datatype: "json",
                 success: function(msg) {
                     if (msg != "") {
-                        // var obj = jQuery.parseJSON(msg);
                         bootbox.dialog({
                             title: "Share File",
                             message: str,
@@ -684,19 +698,19 @@ function sharefiles() {
                                     label: "Send",
                                     className: "btn-primary",
                                     callback: function() {
-                                    	if ($('#to').val() == "") {
+                                    	if ($('#to_contact').val() == "") {
                                             $("#error").css("display", "block");
                                             $(".select2-choices").css("border-color", "red");
                                             return false;
                                         }
-                                        if ($('#to').val() != "") {
-                                            var to_id = ($('#to').val());
+                                        if ($('#to_contact').val() != "") {
+                                            var to_id = ($('#to_contact').val());
                                             // ID comes from member_tail.php
                                             var from_id = (id);
-                                            var rec_id = (file_id);
+                                            var file_id = $(this).attr("id");
                                             $.ajax({
                                                 type: "POST",
-                                                url: "search_rest",
+                                                url: "files_rest",
                                                 data: {
                                                     share_id: to_id
                                                 },
@@ -705,19 +719,18 @@ function sharefiles() {
                                                         if (MSG != "ERROR") {
                                                             $.ajax({
                                                                 type: "POST",
-                                                                url: "search_rest",
+                                                                url: "files_rest",
                                                                 data: {
                                                                     to_ids: MSG,
                                                                     from_ids: from_id,
-                                                                    rec_ids: rec_id,
+                                                                    file_id: file_id,
                                                                 },
                                                                 success: function(data) {
                                                                     if (data == 0) {
-                                                                        bootbox.alert("Records Shared Successfully...", function() {
-                                                                                location.reload();
+                                                                        bootbox.alert("File Shared Successfully...", function() {
                                                                             })
                                                                     } else {
-                                                                        bootbox.alert("You already shared this record with selected contact...", function() {})
+                                                                        bootbox.alert("You already shared this file with selected contact...", function() {})
                                                                     }
                                                                 }
                                                             });
@@ -733,6 +746,12 @@ function sharefiles() {
                                 }
                             }
                         });
+                        var b = (msg.substring(0, msg.length - 1));
+                        var a = b.split(",");
+                        $(".tags", this.el).select2({
+                            tags: a
+                        });
+
                     }
                 }
             });
@@ -1905,6 +1924,22 @@ if ($('#tpl-file').length > 0) {
         }
     });
 }
+if ($('#tpl-contactfile-header').length > 0) {
+    window.ContactFileHeaderView = Backbone.View.extend({
+        template: _.template($('#tpl-contactfile-header').html()),
+        initialize: function() {
+            this.render();
+        },
+        initialize: function() {
+            this.render();
+        },
+        render: function(eventName) {
+        	 var self = this;
+            $(this.el).html(this.template());
+            return this;
+        }
+    });
+}
 // Router
 var AppRouter = Backbone.Router.extend({
 
@@ -1931,6 +1966,9 @@ var AppRouter = Backbone.Router.extend({
         }
         if ($('#add_new_file').length > 0) {
             $('#add_new_file').html(new FileHeaderView().render().el);
+        }
+        if ($('#contact_list').length > 0) {
+            $('#contact_list').html(new ContactFileHeaderView().render().el);
         }
     },
     list: function() {
@@ -2072,6 +2110,12 @@ var AppRouter = Backbone.Router.extend({
         }
     },
     fileslist:  function(y) {
+    	$('#loading_effect').ajaxStart(function() {
+            $(this).show().css("opacity", "0.6");
+        });
+        $('#loading_effect').ajaxComplete(function() {
+            $(this).fadeOut();
+        });
     	this.filesList = new FilesCollection();
         var self = this;
         this.filesList.fetch({
@@ -2091,6 +2135,7 @@ var AppRouter = Backbone.Router.extend({
                 }
             }
         });
+        this.filecontactlist();
     },
     filesdetails: function(id) {
         if (this.filesList) {
@@ -2125,13 +2170,31 @@ var AppRouter = Backbone.Router.extend({
             model: new Files()
         });
         $('#addfile').html(app.AddFileView.render().el);
+        $("#rec_heading").css("display", "none");
         $("#records_list").css("display", "none");
+        $('#filesdetails').html(" ");
         if (this.FilesListView) {
 
         } else {
 
             // this.list();
         }
+    },
+    filecontactlist: function() {
+        this.contactList = new ContactsCollection();
+        var self = this;
+        this.contactList.fetch({
+            success: function(data) {
+                $('#filecontacts').html(new ContactsListView({
+                    model: data
+                }).render().el);
+
+                $("#file_contacts_list").niceScroll({
+                    cursorcolor: "#1ba0a2",
+                    horizrailenabled: false
+                });
+            }
+        });
     }
 });
 var app = new AppRouter();

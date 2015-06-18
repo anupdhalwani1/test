@@ -55,14 +55,14 @@
 </div>
 
 <!-- Video Call Code -->
-<script
-	src="<?php echo base_url().'assets/coffeetable/coffeetable_js/min-coffee-table.js';?>"></script>
-<script
-	src="<?php echo base_url().'assets/coffeetable/coffeetable_js/jquery.tipsy.js';?>"></script>
+<script type="text/javascript" src="https://www.thecoffeetable.in/_common/javascripts/jquery.tipsy.js"></script>
+<script type="text/javascript" src="https://www.thecoffeetable.in/_common/javascripts/third-party/ct-jquery-ui-datepicker/ct-jquery-ui.min.js"></script>                             
+<script type="text/javascript" src="https://www.thecoffeetable.in/_common/javascripts/coffee-table/min-coffee-table.js"></script>   
 
-<link
-	rel="stylesheet"
-	href="<?php echo base_url().'assets/coffeetable/coffeetable_css/coffee-table-v2.css';?>" />
+<link rel="stylesheet" type="text/css" href="https://www.thecoffeetable.in/public/css/coffee-table-v2.css" />
+<link rel="stylesheet"
+	href="<?php echo base_url().'assets/coffeetable/coffeetable_css/coffee-table-custom.css';?>" />
+<link rel="stylesheet" type="text/css" href="https://www.thecoffeetable.in/_common/javascripts/third-party/ct-jquery-ui-datepicker/ct-jquery-ui.min.css" />
 
 <script type="text/javascript">
 			//when document is ready
@@ -80,20 +80,19 @@
 				$('#ctScheduleMeetingButton').click(function () 
 				{ 
 					$('#fade').css("display", "block");
-					$('#video_call').css("display", "block");					
+					$('.coffee-table').css("display", "block");
 					$('.black_overlay').css({
 				        'opacity': '0.6',
 				       	'background-color': 'black',
 				    });
-					initScheduleMeeting('CMR00000010','APP00000018','instantCall',false, true);
-				
-					$('#ctMessageBoxButton2').click(function () 
+					initScheduleMeeting('CMR00000010','APP00000018','instantCall',false, true);					
+					$('.message-box-button-2').click(function () 
 					{ 
 						$('#fade').css("display", "none");
 					});
-					$('#ctMessageBoxClose').click(function () 
+					$('.message-box-close-button').click(function () 
 					{ 
-						$('#fade').css("display", "none");
+						$('.black_overlay').css("display", "none");
 					});
 			
 				});

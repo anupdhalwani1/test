@@ -5,10 +5,12 @@ class files_m extends MY_Model
 	protected $_order_by = 'id asc';
 	public $_priamery_key = 'id';
 
-	public function add_file($file_name,$member_id)
+	public function add_file($file_name,$member_id = NULL)
 	{
+		$memberid = ($member_id == NULL)? $this->session->userdata("id") : $member_id;
+		
 		$add_file = "INSERT INTO `os-pii-files`( `file_name`, `member_id`)
-						VALUES ('" . $file_name . "','".$member_id."')";
+						VALUES ('" . $file_name . "','".$memberid."')";
 
 
 		return array($this->db->query($add_file),$this->db->insert_id());
@@ -51,12 +53,27 @@ class files_m extends MY_Model
 	}
 	public function get_file_details($member_id)
 	{
-		$details = "SELECT `file`.`id`,`file`.`file_name`,`file`.`member_id`
+		$details = "SELECT `file`.`id`,`file`.`file_name`,`file`.`member_id`,`mem`.`fname`,`mem`.`lname`
 					FROM (`os-pii-files` file)
+					JOIN (`os-pii-member` mem) on `mem`.`id`= `file`.`member_id`
 					WHERE `file`.`member_id` = '".$member_id."'
 					AND `file`.`active` =  '1' ";
 
 		return $this->db->query($details)->result_array();
+	}
+	public function get_contact_file_details($contact_id,$user_id = NULL)
+	{
+		$userid = ($user_id == NULL)? $this->session->userdata("id") : $user_id;
+		
+		$contact_file_details = "SELECT `file`.`id` as `file_id`,`file`.`file_name`,`file`.`member_id`
+					FROM (`os-pii-files` file)
+					JOIN (`os-pii-request-notification` req_notif) on `req_notif`.`file_id`= `file`.`id`
+					WHERE `req_notif`.`to_user_id` = '".$userid."'
+					AND `req_notif`.`from_user_id` = '".$contact_id."'
+					AND `req_notif`.`type_id` = 'file_share'
+					AND `file`.`active` =  '1' ";
+
+		return $this->db->query($contact_file_details)->result_array();
 	}
 	public function get_files_records($file_id)
 	{
@@ -69,7 +86,7 @@ class files_m extends MY_Model
 	}
 	public function get_records($record_id)
 	{
-		$get_rec = "SELECT `rec`.`id`, `rec`.`title`, `rec`.`description`, `rec`.`date`, group_concat(DISTINCT records_tag.tagid) as tagid, group_concat(DISTINCT master_tag.tagname) as tagname, group_concat(DISTINCT records_file.filename) as filename
+		$get_rec = "SELECT `rec`.`id`,`rec`.`member_id`, `rec`.`title`, `rec`.`description`, `rec`.`date`, group_concat(DISTINCT records_tag.tagid) as tagid, group_concat(DISTINCT master_tag.tagname) as tagname, group_concat(DISTINCT records_file.filename) as filename
 					FROM (`os-pii-member_record` rec)
 					LEFT JOIN `os-pii-member-record-files` records_file ON `records_file`.`member_record_id` = `rec`.`id`
 					JOIN `os-pii-records-tag` records_tag ON `records_tag`.`recordid` = `rec`.`id`
@@ -152,5 +169,43 @@ class files_m extends MY_Model
 				 ";
 
 		return $this->db->query($records)->result_array();
+	}
+	public function check_notification($to_id, $from_id, $file_id)
+	{
+		$this->db->select("*");
+		$this->db->where("from_user_id", $from_id);
+		$this->db->where("to_user_id", $to_id);
+		$this->db->where("file_id", $file_id);
+		$this->db->where("request_status", "confirm");
+		$this->db->where("type_id", "file_share");
+		$this->db->from("os-pii-request-notification");
+		return $this->db->get()->num_rows();
+	}
+	public function add_to_notification($to_id, $from_id, $file_id)
+	{
+		$share_record = "INSERT INTO `os-pii-request-notification`( `from_user_id`, `to_user_id`, `type_id`,`request_status`,`file_id`)
+						VALUES ($from_id,$to_id,'file_share','confirm',$file_id)";
+
+		return $this->db->query($share_record);
+	}
+	public function get_contact_name($contact_id)
+	{
+		$name = "SELECT group_concat(fname,' ' ,lname) as name FROM (`os-pii-member`) WHERE `id` = '".$contact_id."' ";
+		
+		return $this->db->query($name)->result_array();
+	}
+	public function get_all_records($member_id)
+	{
+		$all_rec = "SELECT `rec`.`id`,`rec`.`member_id`, `rec`.`title`, `rec`.`description`, `rec`.`date`, group_concat(DISTINCT records_tag.tagid) as tagid, group_concat(DISTINCT master_tag.tagname) as tagname
+					FROM (`os-pii-member_record` rec)
+					JOIN (`os-pii-member` mem) on `mem`.`id`= `rec`.`member_id`
+					JOIN `os-pii-records-tag` records_tag ON `records_tag`.`recordid` = `rec`.`id`
+					JOIN `os-pii-tags_master` master_tag ON `master_tag`.`id` = `records_tag`.`tagid`
+					WHERE `rec`.`member_id` = '".$member_id."'
+					AND `rec`.`active` =  '1'
+					GROUP BY `rec`.`id`
+					ORDER BY `date` desc";
+
+		return $this->db->query($all_rec)->result_array();
 	}
 }

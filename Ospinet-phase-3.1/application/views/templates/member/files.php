@@ -265,25 +265,39 @@
 		</li>-->
 	</ul>
 </div>
-
 <div class="layout-app">
 	<!-- row-app -->
 	<div class="row row-app">
 		<!-- col -->
-		<div class="col-sm-12">
+		<div class="col-sm-14">
 			<!-- col-separator -->
 			<div class="col-separator">
 				<!-- row-app -->
 				<div class="row row-app">
 					<!-- col -->
-					<div class="col-lg-5">
+
+					<div class="col-lg-3">
 						<!-- col-separator.box -->
 
 						<div class="col-separator col-separator-first box"
+							id="file_contacts_list">
+							<div class="heading-buttons border-bottom innerLR"
+								id="contact_list"></div>
+							<div id="filecontacts"></div>
+						</div>
+						<!-- // END col-separator.box -->
+					</div>
+					<!-- // END col -->
+					<!-- col -->
+					<!--main column		-->
+					
+					<div class="col-lg-4">
+						<!-- col-separator.box -->
+
+						<div class="col-separator col-separator-second box"
 							id="list_of_files">
 							<div class="heading-buttons border-bottom innerLR"
 								id="add_new_file"></div>
-
 							<div id="filelist"></div>
 						</div>
 						<!-- // END col-separator.box -->
@@ -291,7 +305,8 @@
 					<!-- // END col -->
 					<!-- col -->
 					<!--main column		-->
-					<div class="col-lg-7 showdetails">
+
+					<div class="col-lg-5 showdetails">
 						<!-- col-separator.box -->
 
 						<div class="col-separator box" id="filesdetails"></div>
@@ -331,27 +346,59 @@
 
 <!-- Global -->
 <input type="hidden" id="test_input" />
+<script type="text/template" id="tpl-contactfile-header">
+	
+	<h4 class="margin-none innerTB pull-left">Contacts</h4>
+							<div class="clearfix"></div>
+							
+</script>
+<script type="text/template" id="tpl-contacts-list-item">
+                        <div class="media innerAll active " onclick="javascript:contactfiles('<%= id %>',this)" id="list_<%= id %>">
+														 <button  class="pull-right btn btn-primary btn-stroke btn-xs">
+														 <input type="hidden" value="<%= id %>" id="contact_id" />
+                                                            <i class="fa fa-arrow-right"></i></button>
+                                                            
+  <% if(profile_pic) { %>
+<img src='<?php
+echo base_url() . 'profile_pic/member_pic_80/'; ?><%= profile_pic %>_80.<%= type %>' alt="" class="pull-left thumb" width="35">
+  <% } else { %>  
+<img src="<?php
+echo base_url() . 'assets/images/people/80/default_avatar_80x80.png'; ?>" alt="" class="pull-left thumb" width="35">
+  <% } %>                                                
+								  	<div class="media-body">
+								  		<h5 class="media-heading strong"><%=fname %> <%= lname %></h5>
+								   		<ul class="list-unstyled">
+									    	</ul>
+								  	</div>
+								</div>
+</script>
 <script type="text/template" id="tpl-file">
 	
 	<h4 class="margin-none innerTB pull-left">Files</h4>
-							<button class="new_files btn btn-xs btn-default pull-right" style="margin-top:10px;"><i class="fa fa-plus"></i> Create File <i class="fa fa-folder"></i></button>
-							<div class="clearfix"></div>
+	<button class="new_files btn btn-xs btn-default pull-right" style="margin-top:10px;"><i class="fa fa-plus"></i> Create File <i class="fa fa-folder"></i></button>
+	<div id="myfiles">
+	<a href="<?php echo base_url().'files#fileid/new';?>">
+	<button class="my_files btn btn-xs btn-default" style="margin-top:10px;float: right;margin-right: 10px;"> My Files <i class="fa fa-folder"></i></button>
+	</a>
+	</div>
+	<div class="clearfix"></div>
 							
 </script>
 
 <!-- FILES LIST START-->
 <script type="text/template" id="tpl-files-list-item">
-
-<div class="active" id="filelist" onclick="javascript:files('<%= id %>',this)" id="file_<%= id %>style="width: 90px;"height: 90px;">
-
-<div class="innerAll" style="width: 90px; float: left;padding-left: 8px;height: 110px;" >
-<button  class="btn-primary btn-stroke btn-xs">
-<input type="hidden" value="<%= id %>" id="file_id" />
-<img src="<?php echo base_url() .'assets/images/file_image/file.png'; ?>"id="file_<%= id %>" class="pull-left thumb" width="70">
-<%= file_name %>					
-</button>
-			</div>
-		</div>                                              
+<div class="active" id="contact_files_list">
+<div class="active" id="file_list" onclick="javascript:files('<%= id %>',this)" id="file_<%= id %> style="width: 90px;"height: 90px;">
+	<div class="innerAll" style="width: 84px; float: left;padding-left: 8px;height: 90px;" >
+		<button  class="btn-primary btn-stroke btn-xs">
+			<input type="hidden" value="<%= id %>" id="file_id" />
+			<img src="<?php echo base_url() .'assets/images/file_image/file.png'; ?>"id="file_<%= id %>" class="pull-left thumb" width="65">
+			<%= file_name %>					
+		</button>
+	</div>
+</div>
+</div>
+                                 
 </script>
 
 <!--FILE LIST END-->
@@ -364,21 +411,22 @@
 							<div class="media">
 						        						
 <img src='<?php echo base_url() . 'assets/images/file_image/file.png'; ?>'class="thumb pull-left animated fadeInDown" alt="" width="100" style="visibility: visible;">
- 							
+           
+                             <div class="media-body innerAll half">
 							<a class="remove_file" fileid="<%= id %>" memid="<%= member_id %>">
 								<div class="btn-sm pull-right" style="height: 30px; margin-top: 5px;">
 								<button id="<%= id %>" class="btn btn-default" style="color: brown;"><i class="fa fa-trash-o"></i> Delete File</button>
 								</div>
 							</a>
-
+                             <h4 class="media-heading text-large"><%= file_name %></a></a></h4>
+							 Owner :
+							 <%= fname %> <%= lname %>
 							<a class="share_file" id="<%= id%>" >
 								<div class="btn-sm pull-right" style="height: 30px; margin-top: 5px;">
-									<button id="<%= id%>" class="btn btn-default"><i class="fa fa-share-square-o"></i> Share</button>
+									<button id="<%= id%>" class="btn btn-default"><i class="fa fa-share-square-o"></i> Share File</button>
 								</div>
 							</a>
-            
-                             <div class="media-body innerAll half">
-                             <h4 class="media-heading text-large"><%= file_name %></a></a></h4>
+
  							</div>
 							</div>			
                                </div> 
@@ -401,9 +449,11 @@
 <a id="<%= rec.id%>" class="report_edit_btn"><h5 class="record_title strong margin-none innerAll border-bottom" style="line-height:2.1; width: 570px;"><%= rec.title %>
 								</h5>
 								</a>
-			
+								
 								<div class="innerAll half border-bottom" style="background-color:#EFEFEF;">
-									<i class="fa fa-calendar fa-fw text-primary"></i> <%= record.date %> &nbsp;
+									<% if(rec.date !="") {%>
+									<i class="fa fa-calendar fa-fw text-primary"></i> <%= rec.date %> &nbsp;
+									<% } %>
 									<i class="fa fa-tag fa-fw text-primary"></i>
  									<% if(rec.tags !="") {%>
 									<% _.each(rec.tags, function(tag) { %>
@@ -490,12 +540,12 @@
 </script> -->
 <script type="text/template" id="tpl-record-list-item">	
 
-<div id="records_list" class="media innerAll" style="width: 280px; float: left;" >
+<div id="" class="media innerAll" style="width: 280px; float: left;" >
 	<div class="box-generic" style="width: 260px; border-color: #B4B4B4;">			
-       <div id="<%=record_id%>" class="media">
+       <div id="" class="media">
           <input type="checkbox" value="<%= member_id %>" />
               <div id="records" class="media-body" style="height: 55px; width: 235px; font-size: 20px;">
-				
+			  
 			  </div>
 	   </div>
 	</div>
@@ -507,14 +557,18 @@
      <input type="hidden" value="<%= id %>" id="cont_id" />
                             <div id="addfile" class="innerAll">
 							<div class="media">
-<button id="save_button" type="submit" class="save_add pull-right btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>
-						        						
+<div class="active" id="file_save" onclick="javascript:save_file()">
+<button id="save_file_button" type="submit" class="pull-right btn btn-primary"><i class="fa fa-check-circle"></i> Save</button>
+</div>
+<div class="active" id="file_cancel" onclick="javascript:cancel_file()">
+<button id="cancel_button" style="display: block;margin-right: 10px;" class="cancel btn btn-primary btn-stroke pull-right">Cancel</button>
+</div>					        						
 <img src='<?php echo base_url() . 'assets/images/file_image/file.png'; ?>'class="thumb pull-left animated fadeInDown" alt="" width="100" style="visibility: visible;">
              
                              <div class="media-body innerAll half">
                              <h1 class="media-heading text-large">Add File</a></a></h1>
- 							</div>
-							</div>			
+ 							</div>	
+							</div>
                                </div> 
 								<!-- /* values for date of birth*/-->
                                 <div class="col-separator-h box"></div>
@@ -524,21 +578,24 @@
                                               <div class="bg-gray border-bottom innerAll inner-2x">
                                                 <!-- Row -->
                                                 <div class="row innerLR"> 
-<button id="rec_to_file" class="pull-right btn btn-primary" style="margin-top: 2px;"><i class="fa fa-plus-circle"></i> Add Records</button>
+<button id="rec_to_file" class="pull-right btn btn-primary" style="margin-top: 2px;"><i class="fa fa-plus-circle"></i> Records</button>
                                                   <!-- Column -->
                                                   <div class="col-md-8">
                                                     <div class="form-group">
-                                                      <label id="fn" class="col-md-4 control-label" for="filename">File name</label>
+                                                      <label id="fn" class="col-md-4 control-label" for="filename" style="padding-left: 0px;">File name</label>
                                                     <div class="col-md-8">
-                             <input class="form-control"  id="filename" placeholder="Enter your File name" name="fname"  type="text" />
+                             <input class="form-control"  id="filename" placeholder="Enter your file name" name="fname"  type="text" />
                                                   </div>
                                                  </div>
 												</div>
 											   </div>						
                                                     <!-- // Group END -->
-
 </form>
-<div id="records_list" class="media innerAll" style="width: 280px; float: left;" >
+<div id="rec_heading" style="display: block;font-size: large;">
+Select atlest one record to add into file
+</div>
+
+<div id="records_list" class="media innerAll" style="width: 395px; float: left; display: block;padding-left: 0px;padding-top: 19px;">
 </div>					 
 </script>
 

@@ -17,10 +17,8 @@ class search_rest extends REST_Controller
 	public function index_get()
 	{
 		$search = $this->input->get('search');
-
 		if(filter_var($search, FILTER_VALIDATE_EMAIL))
-		{
-			 
+		{			 
 			$data = $this->register_m->do_search_email($search);
 		}
 		// ------------ Do NOT DELETE THIS -------------------

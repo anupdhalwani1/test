@@ -49,6 +49,20 @@ function contacts(a, $this) {
     $(".innerAll").parent().removeClass("active");
     $($this).parent().addClass("active").attr("id", a);
 }
+function contactfiles(a, $this) {
+    $(".innerAll").parent().removeClass("active");
+    $($this).parent().addClass("active").attr("id", a);
+    $.ajax({
+        type: "POST",
+        url: "rec_file_rest",
+        data: {
+            con_id: a
+        },
+        success: function(msg) {
+        	$('#file_list').html(msg);
+        }
+    });  
+}
 function memberreport(a, $this) {
     //window.location.href="#memberreport/"+a;
     //$($this).parent().parent().addClass("active").attr("id",a);
@@ -225,7 +239,7 @@ function call($this) {
 
 function close_lightbox() {
     $('#light').css("display", "none");
-    $('#video_call').css("display", "none");
+    $('.coffee-table').css("display", "none");
     $('#fade').css("display", "none");
     $('.white_content').css({
         'opacity': '0'
@@ -240,4 +254,31 @@ function files(a, $this) {
     window.location.href = "#fileid/" + a;
     $(".innerAll").parent().removeClass("active");
     $($this).parent().addClass("active").attr("id", a);
+}
+function contact_file_details(a,b,c, $this) {
+    window.location.href = "#fileid/" + a;
+    $($this).parent().addClass("active").attr("id", a);
+    $.ajax({
+        type: "POST",
+        url: "contactfiles_rest",
+        data: {
+        	file_id: a,
+        	file_name: b,
+        	contact_id: c
+        },
+        success: function(msg) {
+        	$('#addfile').css("display", "none");
+        	$('.form-horizontal').css("display", "none");
+        	$('#filesdetails').html(msg);
+        }
+    });
+}
+//cancel file
+function cancel_file(){
+	$("#fn").css("color", "#525252");
+	$("#filename").css("border-color", "#B4B4B4");
+	$("#rec_heading").css("color", "#525252");
+	$("#rec_heading").css("display", "none");
+	$('#records_list').html("");
+	$('#filename').val('');
 }

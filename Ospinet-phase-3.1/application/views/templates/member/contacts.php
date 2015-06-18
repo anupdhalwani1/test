@@ -65,7 +65,6 @@ $this->load->view('components/after_login_head'); ?>
 		</li>-->
 	</ul>
 </div>
-
 <div class="layout-app">
 	<!-- row-app -->
 	<div class="row row-app">

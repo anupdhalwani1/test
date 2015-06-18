@@ -271,13 +271,11 @@ class android_app_fun extends My_Controller
 						$data = array(
 			                'msg' => $this->upload->display_errors()
 						);
-						var_dump($data);
 					} else { //else, set the success message
 						$data = array(
 			                'msg' => "Upload success!"
 			                );			
 			                $data['upload_data'] = $this->upload->data();
-			                //var_dump($data['upload_data']);
 					}					
 				$dimension = "";
 			if ($data['upload_data']['image_width'] >= $data['upload_data']['image_height']) {
@@ -345,7 +343,7 @@ class android_app_fun extends My_Controller
 			}
 			
 			if(isset($email)){
-				$mail = $this->input->post('email');
+				$mail = $email;
 			}else{
 				$mail == NULL;
 			}
@@ -1252,10 +1250,14 @@ class android_app_fun extends My_Controller
 		$response["success"] = 1;
 
 		if($file_id != NULL && $member_id !=NULL){
-	   
-			$delete = $this->files_m->delete_file($file_id,$member_id);
-			$response["message"]  = "File deleted Successfully";
-			 
+	   		$records = $this->files_m->count_records($file_id,$member_id);
+			if(count($records) == 1){
+				$response["success"] = 0;
+				$response["message"] = "Atlest one record is requird, so you cannot delete this record";
+			}else{
+				$delete = $this->files_m->delete_file($file_id,$member_id);
+				$response["message"]  = "File deleted Successfully";
+			}
 		}else{
 			$response["success"] = 0;
 			$response["message"] = "Please check input value";
@@ -1280,7 +1282,40 @@ class android_app_fun extends My_Controller
 		}
 		echo json_encode($response);
 	}
-	//Get details of file
+	//Get details of shared file with login user 
+	public function get_contact_file_details()
+	{
+		$contact_id = $this->input->post('contact_id');
+		$user_id = $this->input->post('user_id');
+		
+		$response["success"] = 1;
+		$response["result"]  = array();
+	  	
+		$arry=array();
+		$data = $this->files_m->get_contact_file_details($contact_id,$user_id);
+		if(count($data) != '0'){
+			$i=0;
+			foreach ($data as $file_id):
+			$file_id["record"]=array();
+			$rec_id = $this->files_m->get_files_records($file_id['file_id']);
+			$j=0;
+			foreach ($rec_id as $id):
+			foreach ($id as $record['record_id']):
+			$record_id = $this->files_m->get_records($record['record_id']);
+			$file_id["record"][$j++] = $record_id;
+			endforeach;
+			endforeach;
+			$arry[$i]=$file_id;
+			$i++;
+			endforeach;
+		 array_push($response["result"], $arry);
+		} else{
+			$response["success"] = 0;
+			$response["message"] = "No file found.";
+		}
+		echo json_encode($response);	
+	}
+	//Get details of file (Owner of the file login user)
 	public function get_file_details()
 	{
 		$member_id = $this->input->post('member_id');
@@ -1308,6 +1343,35 @@ class android_app_fun extends My_Controller
 		} else{
 			$response["success"] = 0;
 			$response["message"] = "No file found.";
+		}
+		echo json_encode($response);
+	}
+	//Share file
+	public function share_file()
+	{
+		$toid     = $this->input->post("to_id");
+		$fromid   = $this->input->post("from_id");
+		$fileid = $this->input->post("file_id");
+		
+		if($toid != NULL & $fromid != NULL & $fileid != NULL)
+		{
+			$i = 0;
+			$array_id = explode(" ", $toid);
+			foreach ($array_id as $key=>$new_id):
+			$count = $this->files_m->check_notification($new_id,$fromid,$fileid);
+			if($count == 0)
+			{
+				$toids = explode(",", $toid);
+				foreach ($toids as $key=>$to_id):
+				$data = $this->files_m->add_to_notification($to_id,$fromid,$fileid);
+				endforeach;
+			}
+			endforeach;
+			$response["success"] = 1;
+			$response["message"] = "File shared successfully";
+		}else {
+			$response["success"] = 0;
+			$response["message"] = "Please check input paramets";
 		}
 		echo json_encode($response);
 	}

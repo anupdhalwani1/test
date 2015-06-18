@@ -66,6 +66,12 @@ $(document).ready(function(e) {
     $("#list_of_contacts").hover(function(e) {
         $(".nicescroll-rails").show();
      });
+    $("#file_contacts_list").hover(function(e) {
+        $(".nicescroll-rails").show();
+     });
+    $("#records_list").hover(function(e) {
+        $(".nicescroll-rails").show();
+     });
 	$("#formdetails").hover(function(e) {
        $(".nicescroll-rails").show();
     });

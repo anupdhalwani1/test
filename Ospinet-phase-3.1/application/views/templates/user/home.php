@@ -14,6 +14,18 @@
 			<a class="btn btn-primary btn-lg"
 				href="<?php echo base_url().'register';?>">Sign up <i
 				class="fa fa-chevron-right"></i> </a>
+			<div class="row text-center">
+                        <span>
+                            <a href="https://play.google.com/store/apps/details?id=com.ospinet.app&hl=en" target="_blank">
+                              <img class="download-app-btn" alt="Get it on Google Play" src="http://ospinet.com/Image/google_paystore/play_Store_lg.png">
+                            </a>
+                        </span>
+                        <span>
+                            
+                               <img class="download-app-btn" alt="Get it on app store" src="http://ospinet.com/Image/iphone_appstore/app_store_lg.png">
+                            
+                        </span>
+            </div>
 			<div class="clerfix"></div>
 			<!--<div class="btn-group bottom">
 				<a class="btn "> <i class="fa fa-refresh"></i> Change History </a>
