@@ -1,0 +1,292 @@
+/* CSS Document */
+#fileuploadfrm {
+	visibility: hidden;
+}
+
+.delete_link {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	height: 35px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0 10px;
+	color: #999999;
+	float: right;
+}
+
+.birth_info_radio {
+	visibility: hidden;
+}
+
+.delete_link:hover {
+	color: #7F0000;
+}
+
+.list-group-item:before {
+	background: rgba(239, 239, 239, 0.3);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 100%;
+	left: 0;
+	content: "";
+	-webkit-transition: right 400ms ease;
+	-moz-transition: right 400ms ease;
+	-o-transition: right 400ms ease;
+	-ms-transition: right 400ms ease;
+	transition: right 400ms ease;
+}
+
+.list-group-item:hover:before {
+	right: 0
+}
+
+.list-group-item:hover {
+	background: #fff
+}
+
+.list-group-item:hover:before {
+	right: 0
+}
+
+.list-group-item.active:before {
+	background: #158182
+}
+
+.delete_link {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	height: 35px;
+	line-height: 35px;
+	margin: 0;
+	padding: 0 10px;
+	color: #999999;
+	float: right;
+}
+
+.birth_info_radio {
+	visibility: hidden;
+}
+
+.delete_link:hover {
+	color: #7F0000;
+}
+
+.record_title:hover {
+	color: #1ba0a2;
+	cursor: pointer;
+}
+
+.record_title:hover {
+	color: #1ba0a2;
+	cursor: pointer;
+}
+
+.dwnlds:hover {
+	cursor: pointer;
+}
+
+.black_overlay_load {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 1001;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+
+.black_overlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	z-index: 1001;
+	-moz-opacity: 0;
+	opacity: 0;
+}
+
+.white_content {
+	display: none;
+	*zoom: 1;
+	top: 113px;
+	left: 40%;
+	right: 40% -webkit-border-radius :   4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	height: 200px;
+	width: 20%;
+	/* height: 600px;*/
+	padding: 18px;
+	background-color: white;
+	z-index: 25246;
+	/* -webkit-transition: all 1s ease-in-out; 
+			 -moz-transition: all 1s ease-in-out; 
+			 -o-transition: all 1s ease-in-out; 
+			 transition: all 1s ease-in-out;*/
+	opacity: 0;
+}
+
+#page_content {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+}
+
+.close {
+	background-image: url(../../images/close.png);
+	position: absolute;
+	right: -6px;
+	top: -3px;
+	cursor: pointer;
+	height: 50px;
+	width: 50px;
+}
+
+.loading_effect {
+	padding: 0;
+	margin: 64px auto 0;
+	list-style: none;
+	text-align: center;
+	display: block;
+}
+
+/* Looks good. Now, we need to animate the items */
+.loading_effect li {
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+	display: inline-block;
+	border-radius: 50%;
+	margin: 0 4px;
+	animation: loading2 5s infinite;
+	animation-fill-mode: both;
+	animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+	-webkit-animation: loading2 5s infinite;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-timing-function: cubic-bezier(0.030, 0.615, 0.995, 0.415);
+}
+
+/* Now the animation is looking perfect. Let's add a final touch */
+
+/* The animation is still not perfect. It's great but still missing the "jump" effect. So for that, we'll use a custom timing function for the animation */
+.loading_effect li:nth-child(6) {
+	animation-delay: 0s;
+	-webkit-animation-delay: 0s;
+}
+
+.loading_effect li:nth-child(5) {
+	animation-delay: 0.2s;
+	-webkit-animation-delay: 0.2s;
+}
+
+.loading_effect li:nth-child(4) {
+	animation-delay: 0.4s;
+	-webkit-animation-delay: 0.4s;
+}
+
+.loading_effect li:nth-child(3) {
+	animation-delay: 0.6s;
+	-webkit-animation-delay: 0.6s;
+}
+
+.loading_effect li:nth-child(2) {
+	animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+}
+
+.loading_effect li:nth-child(1) {
+	animation-delay: 1.0s;
+	-webkit-animation-delay: 1.0s;
+}
+
+/* Now, we need to move the lis items as in the original animation */
+/* It's good, the only thing left is adding some delay for all list items */
+@
+keyframes loading2 { 0% {
+	transform: translateX(-30px);
+	-webkit-transform: translateX(-30px);
+	opacity: 0
+}
+
+25%
+{
+opacity
+:
+ 
+1
+}
+50%
+{
+transform
+:
+ 
+translateX
+(30px);
+ 
+-webkit-transform
+:translateX(30px)
+;opacity
+:
+ 
+0
+}
+100%
+{
+opacity
+:
+ 
+0
+}
+}
+@
+-webkit-keyframes loading2 { 0% {
+	transform: translateX(-30px);
+	-webkit-transform: translateX(-30px);
+	opacity: 0
+}
+25%
+{
+opacity
+:
+ 
+1
+}
+50%
+{
+transform
+:
+ 
+translateX
+(30px);
+ 
+-webkit-transform
+:translateX(30px)
+;opacity
+:
+ 
+0
+}
+100%
+{
+opacity
+:
+ 
+0
+}
+}
+/* That's it! Thanks for watching the tutorial :) */
+</
+style
+>

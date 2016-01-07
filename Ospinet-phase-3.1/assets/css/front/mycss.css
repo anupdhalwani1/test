@@ -1,0 +1,192 @@
+#modals-product-explore {
+	margin-top: -240px;
+}
+
+.modals.visible {
+	opacity: 1;
+	transform: translate(0px, 0px);
+}
+
+.modals {
+	position: fixed;
+	opacity: 0;
+	top: 50%;
+	left: 50%;
+	background: url('../images/1/btn-lighter-bg.png?d69a7d84') repeat scroll
+		0px 0px #FAFAF8;
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px transparent,
+		0px 0px 0px transparent;
+	transform: translate3d(0px, 40px, 0px);
+	transition: opacity 0.4s ease-in-out 0s, transform 0.4s ease-in-out 0s,
+		height 0.2s ease-in-out 0s, margin-top 0.2s ease-in-out 0s;
+	z-index: 10002;
+	border-radius: 3px;
+	width: 420px;
+	margin-left: -210px;
+	-webkit-box-shadow: 6px 6px 13px 0px rgba(50, 50, 50, 0.42);
+	-moz-box-shadow: 6px 6px 13px 0px rgba(50, 50, 50, 0.42);
+	box-shadow: 6px 6px 13px 0px rgba(50, 50, 50, 0.42);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.modals-header {
+	position: relative;
+	background: none repeat scroll 0% 0% #EEEDE9;
+	border-bottom: 1px solid #DBD9D6;
+	height: 54px;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.modals .close-btn {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 7px;
+	right: 7px;
+	background: url('../images/1/btn/close-modals-light.png?b4f56c50')
+		no-repeat scroll 0px 0px transparent;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.modals-header>h2 {
+	margin: 0px;
+	line-height: 54px;
+	text-align: center;
+	font-size: 18px;
+	color: #605D57;
+}
+
+#modals-product-explore .content {
+	padding: 20px 30px;
+	font-size: 12px;
+}
+
+#modals-product-explore .files {
+	padding: 7px 0px;
+	height: 320px;
+	overflow: auto;
+	box-sizing: border-box;
+}
+
+#modals-product-explore .counts,#modals-product-explore .files {
+	border: 1px solid #E3E3E1;
+	border-radius: 3px;
+}
+
+.file-tree,.file-tree ul {
+	list-style: none outside none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.file-tree {
+	cursor: default;
+	-moz-user-select: none;
+}
+
+.file-tree li {
+	position: relative;
+}
+
+.modals li {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+li {
+	font-size: 14px;
+	line-height: 22px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.file-tree li>.name {
+	padding-left: 28px;
+}
+
+.file-tree .name {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-color: transparent;
+	-moz-border-top-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	border-image: none;
+	border-width: 1px 0px;
+}
+
+.file-tree .name a {
+	color: #000;
+	font-size: 15px;
+}
+
+.file-tree .name .icon-page {
+	margin: 0px 6px 0px 0px;
+}
+
+[class ^="icon-"],[class *=" icon-"] {
+	line-height: 14px;
+	text-decoration: inherit;
+}
+
+.icon-page {
+	width: 12px;
+	height: 14px;
+}
+
+[class ^="icon-"],[class *=" icon-"] {
+	display: inline-block;
+	position: relative;
+}
+
+.modals li {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+li {
+	font-size: 14px;
+	line-height: 22px;
+}
+
+.file-tree {
+	cursor: default;
+}
+
+.file-tree,.file-tree ul {
+	list-style: none outside none;
+}
+
+.modals .close-btn {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 7px;
+	right: 7px;
+	background: transparent url(../../images/close-modal-light.png)
+		no-repeat 0 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.success_color {
+	color: #17751C;
+}
+
+.has-error {
+	color: #A94442;
+}

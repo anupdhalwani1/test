@@ -1,0 +1,122 @@
+[24-Mar-2014 11:25:04] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php on line 650
+[24-Mar-2014 11:43:40 Europe/Amsterdam] PHP Fatal error:  Call to a member function userdata() on a non-object in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/test_rest.php on line 47
+[16-Apr-2014 15:38:16 Europe/Amsterdam] PHP Fatal error:  Call to a member function result_array() on a non-object in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/models/member_record_m.php on line 61
+[16-Apr-2014 15:40:24 Europe/Amsterdam] PHP Fatal error:  Call to a member function result_array() on a non-object in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/models/member_record_m.php on line 61
+[28-Apr-2014 15:40:32 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2013--1-0) at position 4 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:112
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(112): DateTime->__construct('2013--1-0')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 112
+[28-Apr-2014 15:41:44 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2013--1-0) at position 4 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:112
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(112): DateTime->__construct('2013--1-0')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 112
+[28-Apr-2014 15:43:44 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2000--1-0) at position 4 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:112
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(112): DateTime->__construct('2000--1-0')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 112
+[28-Apr-2014 15:45:00 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2007--1-0) at position 4 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:112
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(112): DateTime->__construct('2007--1-0')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 112
+[28-Apr-2014 15:45:59 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2012--1-0) at position 4 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:112
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(112): DateTime->__construct('2012--1-0')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 112
+[02-May-2014 09:43:36 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2013-1-) at position 6 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:115
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(115): DateTime->__construct('2013-1-')
+#1 [internal function]: member_rest->index_post()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 115
+[06-May-2014 09:51:49 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (-1-) at position 2 (-): Unexpected character' in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php:197
+Stack trace:
+#0 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php(197): DateTime->__construct('-1-')
+#1 [internal function]: member_rest->index_put()
+#2 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(431): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/libraries/REST_Controller.php(418): REST_Controller->_fire_method(Array, Array)
+#4 /home/ospinet/public_html/_v3/Ospinet-Phase-III/system/core/CodeIgniter.php(325): REST_Controller->_remap('index', Array)
+#5 /home/ospinet/public_html/_v3/Ospinet-Phase-III/index.php(121): require_once('/home/ospinet/p...')
+#6 {main}
+  thrown in /home/ospinet/public_html/_v3/Ospinet-Phase-III/application/controllers/member_rest.php on line 197
+[12-Jun-2014 11:59:20] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 11:59:20] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 11:59:20] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 11:59:20] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:12] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:16] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:19] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:29] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:32] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:32] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:01:33] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:41] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:46] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:02:47] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:03:02] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:05:20] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:05:38] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[12-Jun-2014 12:19:48] PHP Fatal error:  Call to undefined function  apache_request_headers() in /home/ospinet/public_html/application/libraries/REST_Controller.php on line 649
+[16-Jul-2014 03:17:31 Europe/Amsterdam] PHP Fatal error:  Cannot break/continue 1 level in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php on line 279
+[16-Jul-2014 03:17:51 Europe/Amsterdam] PHP Fatal error:  Cannot break/continue 1 level in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php on line 279
+[17-Jul-2014 03:24:22 Europe/Amsterdam] PHP Fatal error:  Cannot break/continue 1 level in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php on line 279
+[17-Jul-2014 07:20:30 Europe/Amsterdam] PHP Fatal error:  Cannot break/continue 1 level in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php on line 279
+[17-Jul-2014 10:55:35 Europe/Amsterdam] PHP Fatal error:  Uncaught exception 'Exception' with message 'DateTime::__construct(): Failed to parse time string (2014-1-) at position 6 (-): Unexpected character' in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php:301
+Stack trace:
+#0 /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php(301): DateTime->__construct('2014-1-')
+#1 [internal function]: android_app_fun->add_member()
+#2 /home/ospinet/public_html/system/core/CodeIgniter.php(359): call_user_func_array(Array, Array)
+#3 /home/ospinet/public_html/index.php(121): require_once('/home/ospinet/p...')
+#4 {main}
+  thrown in /home/ospinet/public_html/application/controllers/app_ws/android_app_fun.php on line 301
+[20-Nov-2014 06:55:06 Europe/Amsterdam] PHP Fatal error:  Can't use method return value in write context in /home/ospinet/public_html/_3_2/application/controllers/member.php on line 236

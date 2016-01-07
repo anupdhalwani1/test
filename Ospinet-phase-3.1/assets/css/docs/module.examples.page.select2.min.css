@@ -1,0 +1,114 @@
+@import
+	'../../../assets/components/library/icons/fontawesome/assets/css/font-awesome.min.css'
+	;
+
+@import
+	'../../../assets/components/library/icons/glyphicons/assets/css/glyphicons_regular.css'
+	;
+
+@import
+	'../../../assets/components/library/icons/glyphicons/assets/css/glyphicons_social.css'
+	;
+
+@import
+	'../../../assets/components/library/icons/glyphicons/assets/css/glyphicons_filetypes.css'
+	;
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
+
+@import
+	url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+@import
+	'../../../assets/components/modules/admin/forms/elements/select2/assets/lib/css/select2.css'
+	;
+
+.select2-results ul.select2-result-sub {
+	padding: 0
+}
+
+.select2-container img.flag {
+	height: 13px;
+	padding-right: 10px;
+	border: none;
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0
+}
+
+.select2-container img.flag,.select2-drop {
+	z-index: 99999
+}
+
+.select2-drop img.flag {
+	height: 13px;
+	padding-right: 10px;
+	max-width: 100%;
+	border: none;
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0
+}
+
+.select2-container .select2-choice {
+	background: #fff;
+	border-color: #efefef;
+	line-height: 1.428571429;
+	height: 34px;
+	padding: 6px 12px;
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0
+}
+
+.select2-container-multi .select2-choices {
+	border-color: #b4b4b4;
+	background: #fff;
+	min-height: 34px
+}
+
+.select2-container-multi .select2-choices .select2-search-choice {
+	margin: 5px 0 5px 5px;
+	border-color: #efefef;
+	background: #eaeaea;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0;
+	line-height: 14px
+}
+
+.select2-container-multi .select2-choices .select2-search-choice .select2-search-choice-close
+	{
+	top: 5px
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+	padding: 6px
+}
+
+.select2-results .select2-highlighted {
+	background: #1BA0A2
+}
+
+.select2-container .select2-choice div {
+	border-color: #efefef;
+	background: #fff;
+	width: 24px;
+	-webkit-border-radius: 0 0 0 0;
+	-moz-border-radius: 0 0 0 0;
+	border-radius: 0 0 0 0
+}
+
+.select2-container .select2-choice div b {
+	background-position: 3px 5px
+}
+
+.select2-drop {
+	border-color: #efefef;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important
+}
